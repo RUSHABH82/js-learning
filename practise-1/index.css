@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#click_me_1 {
+    background-color: #84e77c;
+    height: 40px;
+    width: 140px;
+    border: none;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+#click_me_2 {
+    background-color: #cccccc;
+    padding: 5px 50px;
+    height: 45px;
+    border: 2px solid;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.button {
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-family: helvetica, arial, sans-serif;
+}
