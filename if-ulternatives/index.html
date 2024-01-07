@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        button {
+            height: 50px;
+            margin: 10px;
+            border-radius: 15px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="display: flex; justify-content: center; ">
+
+
+    <pre style="border:2px solid; width: 30%; background-color: #e5b5b5; margin:10px;padding:10px;font-family: Arial,serif; font-size: large; text-align: left">
+1. Ternary operator
+Syntax:  condition ? trueValue : falseValue
+
+    function testTernary(age) {
+        let value = age === undefined ? 18 : age;
+        console.log(value)
+    }</pre>
+
+    <pre style="border:2px solid; width: 30%; background-color: #e5b5b5; margin:10px;padding:10px;font-family: Arial,serif; font-size: large; text-align: left">
+2. Guard operator
+Syntax:  value || defaultValue
+
+    function testGuard(age) {
+        let value = age || 18
+        console.log(value)
+    }</pre>
+    <pre style="border:2px solid; width: 30%; background-color: #e5b5b5; margin:10px;padding:10px;font-family: Arial,serif; font-size: large; text-align: left">
+3. Default operator
+Syntax:  value || fallbackValue
+
+    function testDefault(age) {
+        let value = age ?? 18
+        console.log(value)
+    }</pre>
+</div>
+<hr>
+
+<div style="margin: 20px; font-family: arial,serif">
+    <h2>Practise Test</h2>
+    1. Give discount based on age, gender for metro ticket<br>
+    - Females get 50% off<br>
+    - Kids under 5 years of age are free<br>
+    - Kids up to 8 years have half ticket<br>
+    - People Over 65 years of age only pay 30% of the ticket<br>
+    - In case of multiple discounts max discount will apply.
+</div>
+
+<div>
+    <h2>Practise test Answer:</h2>
+    <span id="result"></span>
+    <div>
+        <span style="font-weight: bold"> Select Gender:</span>
+        <label for="male">male</label>
+        <input type="radio" id="male" name="gender" value="male" onclick="genderChangeHandler('male')"/>
+        <label for="female">female</label>
+        <input type="radio" id="female" name="gender" value="female" onclick="genderChangeHandler('female')"/>
+        <span style="color: red" id="gender-val"></span>
+    </div>
+    <div>
+        <span style="font-weight: bold"> Enter Your Age:</span>
+        <label>
+            <input id="person-age" type="range" min="0" max="100" onchange="ageChangeHandler()"/>
+        </label><span id="age-val"></span>
+    </div>
+    <button onclick="getDiscount()"> Get Discount</button>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
