@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practise/JSON,local-storage,dom & date</title>
+    <style>
+
+        .button {
+            display: flex;
+            justify-content: center;
+            min-width: 130px;
+            min-height: 60px;
+            border-radius: 20px;
+            align-items: center;
+            font-size: large;
+        }
+
+        .odd {
+            background-color: #7a98ff;
+            border: 1px blue solid;
+        }
+
+        .even {
+            background-color: #ff7a7a;
+            border: 1px red solid;
+        }
+
+        .container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            font-family: arial, serif;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <span>Hello, </span>
+    <span id="message"></span>
+</div>
+<div class="container">
+    <button class="button" id="button-count" onclick="clickCount()"></button>
+</div>
+<script>
+    const messageSet = {
+        morning: "Good Morning", // 3 - 9 (1,2)
+        afternoon: "Good Afternoon", //  9 - 15 (3,4)
+        evening: "Good Evening", // 15 - 21 (5,6)
+        night: "Good Night", // 21 - 24 || 0 - 3 (7,8)
+    }
+
+    displayWelcomeMessage();
+    updateBtnCountOnDom();
+
+    function displayWelcomeMessage() {
+        const currentHoursPart = new Date().getHours() / 3;
+        const welcomeMessage =
+            (currentHoursPart === 1 || currentHoursPart === 2) ? messageSet.morning :
+                (currentHoursPart === 3 || currentHoursPart === 4) ? messageSet.afternoon :
+                    (currentHoursPart === 5 || currentHoursPart === 6) ? messageSet.evening :
+                        (currentHoursPart === 7 || currentHoursPart === 8 || currentHoursPart === 0)
+                            ? messageSet.night : "Namaste sir";
+        document.getElementById("message").innerHTML = `${welcomeMessage}`;
+    }
+
+    function getBtnCount() {
+        const currentCount = localStorage.getItem("btn-click-count");
+        if (currentCount) {
+            return Number(currentCount);
+        }
+        localStorage.setItem("btn-click-count", 0)
+        return 0;
+    }
+
+    function updateBtnCountOnDom() {
+        const currentCount = getBtnCount();
+        const button = document.getElementById("button-count")
+        button.innerHTML = `${currentCount}`;
+        if (currentCount % 2 === 0) {
+            button.classList.remove('even')
+            button.classList.add('odd')
+        } else {
+            button.classList.remove('odd')
+            button.classList.add('even')
+        }
+
+    }
+
+    function clickCount() {
+        localStorage.setItem("btn-click-count", Number(getBtnCount()) + 1)
+        updateBtnCountOnDom()
+    }
+
+</script>
+</body>
+</html>

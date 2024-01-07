@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bat ball stump</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<h1>Select Your choice for game</h1>
+<div>
+    <h3>Your Score:</h3>
+    <span id="display-score"></span>
+    <span id="last-move"></span>
+</div>
+<button id="ball" onclick="selectMyChoice(choice.ball)">BALL</button>
+<button id="bat" onclick="selectMyChoice(choice.bat)">BAT</button>
+<button id="stump" onclick="selectMyChoice(choice.stump)">STUMP</button>
+<div>
+    <button style="background-color: #ff7a7a; width: 120px" onclick="resetScore()">RESET SCORE</button>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

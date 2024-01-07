@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Json</title>
+</head>
+<body>
+<span id="id"></span>
+<script>
+
+    let product = {
+        name: 'T shirt',
+        price: 69,
+        rating: {
+            stars: 4.5,
+            noOfReviews: 453,
+        }
+    }
+    console.log(typeof product)
+    console.log(product)
+    let str = JSON.stringify(product);
+    console.log(typeof str)
+    console.log(str)
+    let jsonString = '{"name":"T shirt","price":"696","rating":{"stars":4.5,"noOfReviews":453}}';
+    console.log(JSON.parse(jsonString))
+
+
+    localStorage.setItem('product', JSON.stringify(product));
+
+</script>
+</body>
+</html>
