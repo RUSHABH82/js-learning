@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practise/array&loop</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div id="tasks"></div>
+<script>
+    task1();
+    task2()
+    task3()
+    task4(6)
+    task5(6)
+    task6(7)
+    task7()
+    task8()
+
+    function task1() {
+        logAtDom('1. Create an array of numbers [5,6]. Add 4 at the beginning and 7 at the end of the array.', 'p')
+        logAtDom('Code:\n' +
+            '        let array = [5, 6]\n' +
+            '        array.push(7)\n' +
+            '        array.unshift(4)\n' +
+            '        console.log(array)', 'pre')
+        let array = [5, 6]
+        array.push(7)
+        array.unshift(4)
+        logAtDom(`Output: <br/>${array}<hr>`, 'div')
+    }
+
+    function task2() {
+        logAtDom('2. Create a method to return an element at a particular position in the array.', 'p')
+        logAtDom('Code:\n' +
+            '        let array = [1,2,4,5,2,6,3,7];\n' +
+            '        function getElement(arr, position) {\n' +
+            '            if (Array.isArray(arr)) {\n' +
+            '                return arr[position - 1];\n' +
+            '            }\n' +
+            '        }\n' +
+            '       console.log(getElement(array,7));', 'pre')
+        let array = [1, 2, 4, 5, 2, 6, 3, 7];
+
+        function getElement(arr, position) {
+            if (Array.isArray(arr)) {
+                return arr[position - 1];
+            }
+        }
+
+        logAtDom(`Output: <br/>${getElement(array, 7)}<hr>`, 'div');
+    }
+
+    function task3() {
+        logAtDom('3. Create an array copy using the slice method.', 'p')
+        logAtDom('Code:\n' +
+            '        let array = [4, 5, 6, 7]\n' +
+            '        function copyArray(array) {\n' +
+            '            if (Array.isArray(array)) {\n' +
+            '                return array.slice(0, array.length)\n' +
+            '            }\n' +
+            '        }\n' +
+            '        console.log("is copy:", array === copyArray(array))\n', 'pre')
+        let array = [4, 5, 6, 7]
+
+        function copyArray(array) {
+            if (Array.isArray(array)) {
+                return array.slice(0, array.length)
+            }
+        }
+
+        console.log("is copy: ", array === copyArray(array))
+        logAtDom(`Output: <br/>is copy: ${array === copyArray(array)}<hr>`, 'div');
+    }
+
+    function task4(primeNumberCount = 10) {
+        logAtDom('4. Create a while loop that exits after counting 5 prime numbers.', 'p')
+        logAtDom('Code:\n' +
+            '        let count = 0;\n' +
+            '        let number = 2;\n' +
+            '        while (count < primeNumberCount) {\n' +
+            '            if (isPrime(number)) {\n' +
+            '                count++;\n' +
+            '                console.log(`${count}th prime number: ${number}`)\n' +
+            '            }\n' +
+            '            number++;\n' +
+            '        }\n' +
+            '\n' +
+            '        function isPrime(num) {\n' +
+            '            for (let i = 2; i < num; i++) {\n' +
+            '                if (num % i === 0)\n' +
+            '                    return false;\n' +
+            '            }\n' +
+            '            return true;\n' +
+            '        }\n', 'pre')
+
+
+        logAtDom(`Output:`, 'div');
+
+        let count = 0;
+        let number = 2;
+        while (count < primeNumberCount) {
+            if (isPrime(number)) {
+                count++;
+                console.log(`${count}th prime number: ${number}`)
+                logAtDom(`${count}th prime number: ${number}<br>`, 'span');
+            }
+            number++;
+        }
+
+        function isPrime(num) {
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0)
+                    return false;
+            }
+            return true;
+        }
+
+        logAtDom('', 'hr');
+
+    }
+
+    function task5(primeNumberCount = 10) {
+        logAtDom('5. Modify the above loop to finish using break.', 'p')
+        logAtDom('Code:\n' +
+            '        let count = 0;\n' +
+            '        let number = 2;\n' +
+            '        while (true) {\n' +
+            '            if (isPrime(number)) {\n' +
+            '                count++;\n' +
+            '                console.log(`${count}th prime number: ${number}`)\n' +
+            '                if (count >= primeNumberCount) break;\n' +
+            '            }\n' +
+            '            number++;\n' +
+            '        }\n' +
+            '\n' +
+            '        function isPrime(num) {\n' +
+            '            for (let i = 2; i < num; i++) {\n' +
+            '                if (num % i === 0)\n' +
+            '                    return false;\n' +
+            '            }\n' +
+            '            return true;\n' +
+            '        }\n', 'pre')
+        logAtDom(`Output:`, 'div');
+        let count = 0;
+        let number = 2;
+        while (count < primeNumberCount) {
+            if (isPrime(number)) {
+                count++;
+                console.log(`${count}th prime number: ${number}`)
+                logAtDom(`${count}th prime number: ${number}<br>`, 'span');
+                if (count >= primeNumberCount) break;
+            }
+            number++;
+        }
+
+        function isPrime(num) {
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0)
+                    return false;
+            }
+            return true;
+        }
+
+        logAtDom('', 'hr');
+    }
+
+    function task6(number = 10) {
+        logAtDom(`6. Create a for loop that prints number 1 to ${number} in reverse order.`, 'p')
+        logAtDom('Code:\n' +
+            '        for (let i = 0; i < number; i++) {\n' +
+            '            console.log(number - i)\n' +
+            '        }\n', 'pre')
+        logAtDom(`Output: `, 'div')
+
+        for (let i = 0; i < number; i++) {
+            console.log(number - i)
+            logAtDom(`${number - i}<br> `, 'div')
+        }
+        logAtDom(``, 'hr')
+
+    }
+
+    function task7() {
+        logAtDom('7. Using continue only print positive numbers from the given array [1,-6,5,7,-98]', 'p')
+        logAtDom('Code:\n' +
+            '', 'pre')
+        console.log('Task 7');
+        const array = [1, -6, 5, 7, -98];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] < 0) continue;
+            console.log(array[i])
+        }
+    }
+
+    function task8() {
+        logAtDom('8. Using the accumulator pattern concatenate all the strings in the given array [\'KG\', \'Coding\', \'Javascript\', \'Course\', \'is\', \'Best\']', 'p')
+        logAtDom('Code:\n' +
+            '', 'pre')
+
+
+        let stringArray = ['KG', 'Coding', 'Javascript', 'Course', 'is', 'Best'];
+        let finalResult = '';
+        for (let i = 0; i < stringArray.length; i++) {
+            finalResult += `${stringArray[i]} `;
+        }
+        console.log(finalResult.trim())
+
+    }
+
+    function logAtDom(log, tag = 'div') {
+        const divElement = document.createElement(`${tag}`)
+        divElement.innerHTML = log;
+        document.getElementById("tasks").append(divElement)
+    }
+
+</script>
+</body>
+</html>

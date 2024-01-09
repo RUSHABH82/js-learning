@@ -1,0 +1,61 @@
+
+#main-heading {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: arial, serif;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+}
+
+
+.todo {
+    padding: 5px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+
+.todo button {
+    width: 100px;
+    background-color: #ff7a7a;
+}
+
+.todo span {
+    min-width: 50px;
+    width: 150px;
+    padding: 2px;
+}
+
+.input-container {
+    height: 40px;
+}
+
+.input-container button {
+    background-color: rgba(79, 168, 35, 0.6);
+}
+
+.input-container input {
+    width: 150px;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding: 10px 15px;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+button {
+    border-radius: 10px;
+    width: 100px;
+    cursor: pointer;
+}
+

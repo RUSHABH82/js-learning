@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+
+<div id="log"></div>
+<script>
+
+    let array1 = [1, 2, 3, 4, 5, 6, 7, 8]
+    let obj = {name: "Rush"}
+    logAtDom("is Array :" + Array.isArray(array1))
+    logAtDom("is Array :" + Array.isArray(obj))
+
+    logAtDom(array1.toString())
+    logAtDom("PUSH(9) : " + array1.push(9))
+    logAtDom('Result :' + array1)
+    logAtDom("POP(): " + array1.pop())
+    logAtDom('Result :' + array1)
+
+    array1.unshift(-1)
+    logAtDom("unshift(-1) : " + -1)
+    logAtDom('Result :' + array1)
+    logAtDom("shift() : " + array1.shift())
+    logAtDom('Result :' + array1)
+
+    let array2 = [4, 5, 6, 4, 10, 22, 2, 4, 5, 6];
+    logAtDom("creating new Array: " + array2)
+    array2.sort((a, b) => a - b);
+    logAtDom("array2.sort(): " + array2)
+
+    function logAtDom(log) {
+        const divElement = document.createElement('p')
+        divElement.innerHTML = log;
+        document.getElementById("log").append(divElement)
+    }
+</script>
+</body>
+</html>
