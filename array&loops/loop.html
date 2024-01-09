@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loops</title>
+</head>
+<body>
+<div id="loops"></div>
+<script>
+    logAtDom("While loop is starting:")
+    logAtDom("<br><div>Code:</div><pre>" +
+        "    let whileCondition = 0\n" +
+        "    while (whileCondition !== 3) {\n" +
+        "        whileCondition = Math.round(Math.random() * 3)\n" +
+        "        logAtDom(whileCondition)\n" +
+        "    }</pre><div>Output:</div>")
+    let whileCondition = 0
+    while (whileCondition !== 3) {
+        whileCondition = Math.round(Math.random() * 3)
+        logAtDom(whileCondition)
+    }
+    logAtDom("<hr>")
+    logAtDom("Do While loop is starting:")
+    logAtDom("<br><div>Code:</div><pre>" +
+        "    let doWhileCondition = 0\n" +
+        "    do {\n" +
+        "        doWhileCondition = Math.round(Math.random() * 3)\n" +
+        "        logAtDom(doWhileCondition)\n" +
+        "    }\n" +
+        "    while (doWhileCondition !== 3)\n" +
+        "</pre><div>Output:</div>")
+    let doWhileCondition = 0
+    do {
+        doWhileCondition = Math.round(Math.random() * 3)
+        logAtDom(doWhileCondition)
+    }
+    while (doWhileCondition !== 3)
+
+
+    logAtDom("<hr>")
+    logAtDom("For loop is starting:")
+    logAtDom("<br><div>Code:</div><pre>" +
+        "    let array = [1,2,4,2,2,4]\n" +
+        "    for (let i = 0; i < array.length; i++) {\n" +
+        "        logAtDom(array[i]);\n" +
+        "    }\n</pre><div>Output:</div>")
+    let array = [1,2,4,2,2,4]
+    for (let i = 0; i < array.length; i++) {
+        logAtDom(array[i]);
+    }
+
+    function logAtDom(log) {
+        const divElement = document.createElement('div')
+        divElement.innerHTML = `${log} `;
+        document.getElementById("loops").append(divElement)
+    }
+</script>
+</body>
+</html>
